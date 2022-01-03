@@ -1,11 +1,11 @@
 #include<stdio.h>
 #define MAX_SIZE 100
-int top1 = -1;
+int top = -1;
 int stack[MAX_SIZE];
 
 void push(int element){
 	if(top == MAX_SIZE-1)
-		printf("Stack overflow");
+		printf("Stack overflow\n");
 	else
 		stack[++top] = element;
 }
@@ -17,6 +17,9 @@ int pop(){
 	else
 		return stack[top--];
 }
+void peek(){
+	printf("Top = %d\n", stack[top]);
+}
 
 void main(){
 	int i, n, n2, element, p;
@@ -27,6 +30,7 @@ void main(){
 		scanf("%d", &element);
 		push(element);
 	}
+	peek();
 	printf("Enter no of elements to be popped: ");
 	scanf("%d", &n2);
 	for(i=0; i<n2; i++){
