@@ -20,13 +20,17 @@ int pop(int *stack, int *top){
 }
 
 void sortedPushStack(int element){
+	// Adding directly when element is greater than greatest in ascendingly sorted stack || when stack is empty
 	if( element >= stack1[top1] || top1==-1 )
 		push(stack1, &top1, element);
 	else {
+		// To keep adding numbers smaller than element to auxiliary stack && stopping when it reaches end of stack 
 		while( element<stack1[top1] && top1!=-1 ){
 			stack2[++top2] = pop(stack1, &top1);
 		}
+		// Adding element to right position
 		push(stack1, &top1, element);
+		// Putting elements back into original stack from auxiliary stack
 		while(top2!=-1){
 			stack1[++top1] = pop(stack2, &top2);
 		}
