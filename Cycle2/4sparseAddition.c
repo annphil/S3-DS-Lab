@@ -7,19 +7,24 @@ typedef struct{
 	int value;
 }sparse;
 
+//m, n - order of 'a' matrix
+// p, q - order of 'b' matrix
 void Add(sparse* a, sparse* b, sparse* c, int m,int n,int p,int q){
+	// No. of rows and columns of a and b have to be same.
 	if(m==p && n==q){
 		c[0].row=a[0].row;
 		c[0].col=a[0].col;
+		//pa, pb, pc are pointers that keep track of the row to be checked. 0th row contains meta data. Hence it's avoided.
 		int pa=1,pb=1,pc=1;
+		// Check till 
 		while(pa<=a[0].value || pb<=b[0].value){
 			if(a[pa].row==b[pb].row && a[pa].col==b[pb].col){
-			c[pc].row=a[pa].row;
-			c[pc].col=a[pa].col;
-			c[pc].value=a[pa].value+b[pb].value;
-			pa++;
-			pb++;
-			pc++;
+				c[pc].row=a[pa].row;
+				c[pc].col=a[pa].col;
+				c[pc].value=a[pa].value+b[pb].value;
+				pa++;
+				pb++;
+				pc++;
 			}
 			else if(a[pa].row==b[pb].row){
 				if(a[pa].col<b[pb].col){
@@ -36,7 +41,7 @@ void Add(sparse* a, sparse* b, sparse* c, int m,int n,int p,int q){
 					pb++;
 					pc++;
 				}
-			}
+			}\
 			else if(a[pa].row<b[pb].row){
 				c[pc].row=a[pa].row;
 				c[pc].col=a[pa].col;
@@ -67,6 +72,7 @@ void DisplaySparse(sparse* c){
 		printf("%d\t%d\t%d\n",c[i].row,c[i].col,c[i].value);
 }
 
+//Inputting elements into 2D array
 void input(int mat[10][10], int*e, int*f){
 	int i,j;
 	printf("Enter order of matrix: ");
@@ -79,7 +85,11 @@ void input(int mat[10][10], int*e, int*f){
 	}
 }
 
+// Inputting elements into structure variable sparse.
 void sparseDataInput(int mat[10][10], sparse* z, int*e, int*f){
+	// e,f - order of array
+	// k - row of sparse data structure ( 0th row stores meta data)
+	//count varible is used to get number of non zero terms in matrix
 	int k=1, i, j, count=0;
 	z[0].row = *e;
 	z[0].col = *f;
