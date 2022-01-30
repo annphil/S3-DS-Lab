@@ -1,4 +1,4 @@
-// Pgm to check if a given expression has balanced paranthesis
+// Pgm to check if a given expression has balanced parentheses
 
 #include<stdio.h>
 #include<stdbool.h>
@@ -19,7 +19,7 @@ void pop(char *stack, int *top){
 		--*top;
 }
 
-bool balancedParanthesis(char *str, char *stack, int *top ){
+bool balancedParentheses(char *str, char *stack, int *top ){
 	int i;
 	for(i=0; i<strlen(str); i++)
 	{
@@ -55,7 +55,7 @@ void main(){
 	k = balancedParanthesis(s, stack, &top);
 	
 	if(k==true)
-		printf("Expression has balanced paranthesis\n");
+		printf("Expression has balanced parentheses\n");
 	else
-		printf("Paranthesis in expression is not balanced\n");	
+		printf("Expression does not have balanced parentheses\n");	
 }
