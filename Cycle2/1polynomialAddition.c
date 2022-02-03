@@ -21,7 +21,7 @@ void polyDisplay(polynomial* x, int n){
 		printf("Exponent and coefficient of term %d: %d, %d\n", i+1, x[i].expon, x[i].coef);
 }
 
-void polyAddition(polynomial* a, polynomial* b, polynomial* c, int n1, int n2, int* n3){
+void polyAddition(polynomial *a, polynomial *b, polynomial *c, int n1, int n2, int *n3){		
 	int i=0,j=0,k=0, l;
 	while( i<n1 && j<n2 ){
 		if (a[i].expon < b[j].expon){ 
