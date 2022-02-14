@@ -26,28 +26,49 @@ void insertEnd(int data){
 	}	
 }
 
-void insert(int data, int check){
+/*void delete(int data, int check){
 	struct listNode *node = (struct listNode*)malloc(sizeof(struct listNode));
 	node->data = data;
 	node->link = NULL;
 	
 	struct listNode *temp = head;
+	
 	if(head->data == check){
 		head = head->link;
-		free(temp);
+		printf("Hi %d",head->data);
+		//free(temp);
 	}
 	else{
 		struct listNode *trail = head;
 		while(trail->link){
 			if(temp->data == check){
 				trail->link = temp->link;
-				free(temp);
+				//free(temp);
+				//printf("Hi %d",head->data);
 				break;
 			}
 			else
 				trail = temp;
 				temp = temp->link;
 		}	
+	}
+}*/
+
+void insert(int data, int check){
+	struct listNode *node = (struct listNode*)malloc(sizeof(struct listNode));
+	node->data = data;
+	node->link = NULL;
+	
+	struct listNode *temp = head;
+
+	while(temp){
+		if(temp->data == check){
+			node->link = temp->link;
+			temp->link = node;
+			break;
+		}
+		else
+			temp = temp->link;
 	}
 }
 
@@ -63,12 +84,12 @@ void displayList(){
 void main(){
 	int n, flag = 1;
 	while(flag!=0){
-		printf("\nEnter choice\n1. Insert at end\n4. Insert after a node\n3. Display List\n4. Exit\n");
+		printf("\nEnter choice\n1. Insert at end\n2. Insert after a node\n3. Display List\n4. Exit\n");
 		scanf("%d", &n);
 		switch (n){
 			case 1 : printf("Enter data to be inserted:");
 				 int data;
-				 scanf("%d ", &data);
+				 scanf("%d", &data);
 				 insertEnd(data);
 				 break;
 			case 2 : printf("Enter data and no. after which to be inserted:");
