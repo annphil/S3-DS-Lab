@@ -21,7 +21,7 @@ int pop(){
 }
 
 void main(){
-	char exp[50];
+	char exp[MAX_SIZE];
 	int i;
 	printf("Enter postfix expression: ");
 	scanf("%s", exp);
