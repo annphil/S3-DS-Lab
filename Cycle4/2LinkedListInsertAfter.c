@@ -54,7 +54,7 @@ void insertEnd(int data){
 	}
 }*/
 
-void insert(int data, int check){
+void insertAfter(int data, int check){
 	struct listNode *node = (struct listNode*)malloc(sizeof(struct listNode));
 	node->data = data;
 	node->link = NULL;
