@@ -1,3 +1,4 @@
+// Efficient program to find transpose of a sparce matrix
 #include<stdio.h>
 
 typedef struct{
