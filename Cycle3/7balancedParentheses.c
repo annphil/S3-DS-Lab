@@ -35,7 +35,7 @@ bool balancedParentheses(char *str, char *stack, int *top ){
 			}
 		}
 		else
-			push(stack, top, str[i]);
+			push(stack, top, str[i]);			// push if it's anything other than ')'
 	}
 	
 	if(*top == -1)
