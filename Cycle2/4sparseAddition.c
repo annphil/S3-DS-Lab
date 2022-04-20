@@ -18,7 +18,7 @@ void Add(sparse* a, sparse* b, sparse* c, int m,int n,int p,int q){
 		int pa=1,pb=1,pc=1;
 		// Check till 
 		while(pa<=a[0].value || pb<=b[0].value){
-			if(a[pa].row==b[pb].row && a[pa].col==b[pb].col){
+			if(a[pa].row==b[pb].row && a[pa].col==b[pb].col){	//If positions are same
 				c[pc].row=a[pa].row;
 				c[pc].col=a[pa].col;
 				c[pc].value=a[pa].value+b[pb].value;
@@ -26,23 +26,23 @@ void Add(sparse* a, sparse* b, sparse* c, int m,int n,int p,int q){
 				pb++;
 				pc++;
 			}
-			else if(a[pa].row==b[pb].row){
-				if(a[pa].col<b[pb].col){
+			else if(a[pa].row==b[pb].row){				//If Rows are same but columns aren't
+				if(a[pa].col<b[pb].col){				//If Rows are same and colA < colB, put A value in C
 					c[pc].row=a[pa].row;
 					c[pc].col=a[pa].col;
 					c[pc].value=a[pa].value;
 					pa++;
 					pc++;
 				}	
-				else{
+				else{							// If Rows are same and colB < colA, put B value in C 
 					c[pc].row=b[pb].row;
 					c[pc].col=b[pb].col;
 					c[pc].value=b[pb].value;
 					pb++;
 					pc++;
 				}
-			}\
-			else if(a[pa].row<b[pb].row){
+			}
+			else if(a[pa].row<b[pb].row){				// If rowA < rowB, put A value in C
 				c[pc].row=a[pa].row;
 				c[pc].col=a[pa].col;
 				c[pc].value=a[pa].value;
