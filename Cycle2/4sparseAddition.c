@@ -41,15 +41,15 @@ void Add(sparse* a, sparse* b, sparse* c, int m,int n,int p,int q){
 					pb++;
 					pc++;
 				}
-			}
-			else if(a[pa].row<b[pb].row){				// If rowA < rowB, put A value in C
+			}							// If rows arent same
+			else if(a[pa].row<b[pb].row){					// If rowA < rowB, put A value in C
 				c[pc].row=a[pa].row;
 				c[pc].col=a[pa].col;
 				c[pc].value=a[pa].value;
 				pa++;
 				pc++;
-			}
-			else{
+			}							
+			else{								// If rowB < rowA, put B value in C
 				c[pc].row=b[pb].row;
 				c[pc].col=b[pb].col;
 				c[pc].value=b[pb].value;
